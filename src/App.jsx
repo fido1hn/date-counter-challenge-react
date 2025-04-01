@@ -1,23 +1,39 @@
+import { useState } from "react";
 import "./index.css";
 
 function App() {
-  const step = 1;
-  const count = 1;
+  let [step, setStep] = useState(1);
+  const [count, setCount] = useState(0);
+
+  function handleIncreaseStep() {
+    setStep((s) => (s += 1));
+  }
+  function handleReduceStep() {
+    setStep((s) => s - 1);
+  }
+
+  function handleIncreaseCount() {
+    setCount((s) => s + step);
+  }
+  function handleReduceCount() {
+    setCount((s) => s - step);
+  }
+
   return (
     <div className="center-box">
       <div className="vertical-box">
         <div>
-          <button>-</button>
+          <button onClick={handleReduceStep}>-</button>
           Step: {step}
-          <button>+</button>
+          <button onClick={handleIncreaseStep}>+</button>
         </div>
         <div>
-          <button>-</button>
+          <button onClick={handleReduceCount}>-</button>
           Count: {count}
-          <button>+</button>
+          <button onClick={handleIncreaseCount}>+</button>
         </div>
 
-        <p>30 days from today: </p>
+        <p>{count} days from today: </p>
       </div>
     </div>
   );
