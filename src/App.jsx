@@ -1,5 +1,11 @@
+import "./index.css";
+
 function App() {
-  return <h1>Hello Challenge</h1>;
+  return (
+    <div className="center-box">
+      <h1>Hello Challenge</h1>
+    </div>
+  );
 }
 
 export default App;
